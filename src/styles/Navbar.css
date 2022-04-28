@@ -12,17 +12,26 @@
     font-family: 'Raleway';
 }
 
-.links span {
+.links span,
+.phone_navbar span {
     margin: 0px 20px;
     cursor: pointer;
     transition: .2s;
+}
+
+.links img {
+    height: 43px;
+    width: 43px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .links span:hover {
     color: var(--green);
 }
 
-.links button {
+.links button,
+.phone_navbar button {
     border-radius: 8px;
     margin: 0px 10px;
     font-weight: 700;
@@ -33,10 +42,85 @@
     height: 34px;
 }
 
-.links #login_button {
+.phone_navbar button {
+    margin: 5px 0px;
+}
+
+#login_button {
     background-color: var(--orange);
 }
 
-.links #signup_button {
+#signup_button {
     background-color: var(--green);
+}
+
+/* phone navbar styling */
+.phone_navbar {
+    position: fixed;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    width: 100%;
+}
+
+.phone_navbar span {
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.phone_navbar img {
+    width: 100px;
+    height: auto;
+    margin: 30px 0px;
+}
+
+#back_button {
+    margin-top: 20px;
+    background-color: var(--orange);
+}
+
+.bars {
+    color: var(--orange);
+    cursor: pointer;
+    font-size: 24px;
+    display: none;
+}
+
+/* phone navbar styling */
+
+
+@media (max-width: 1024px) {
+    .links {
+        font-size: 14px;
+    }
+
+    .logo img {
+        width: 70px;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .links span {
+        margin: 0px 10px;
+    }
+
+    .links button {
+        margin: 0px 5px
+    }
+}
+
+@media (max-width: 768px) {
+    .links img {
+        height: 35px;
+        width: 35px;
+    }
+
+    .links_section {
+        display: none;
+    }
+
+    .bars {
+        display: block;
+    }
 }
