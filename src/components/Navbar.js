@@ -1,13 +1,13 @@
 import { faBars, faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import avatar from '../assets/avatar.jpg';
+import avatar from '../assets/avatar.png';
 import logo from '../assets/main_logo_black.png';
 import '../styles/Navbar.css';
 
 
 export default function Navbar() {
-    const [phoneNavbar, setPhoneNavbar] = useState(true);
+    const [phoneNavbar, setPhoneNavbar] = useState(false);
 
     return (
         <>
