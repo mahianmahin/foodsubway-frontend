@@ -1,0 +1,40 @@
+.heading {
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 10px 0px;
+    color: var(--green);
+}
+
+.section {
+    margin-top: 100px;
+}
+
+.product_section {
+    overflow-x: scroll;
+
+}
+
+.product_section::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+}

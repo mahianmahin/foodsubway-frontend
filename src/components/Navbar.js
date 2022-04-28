@@ -6,6 +6,7 @@ import logo from '../assets/main_logo_black.png';
 import '../styles/Navbar.css';
 
 
+
 export default function Navbar() {
     const [phoneNavbar, setPhoneNavbar] = useState(false);
 
