@@ -23,17 +23,9 @@ export default function Home() {
 
         <div className="container slider_box">
             <Slider {...settings}>
-                <div>
-                    <img src={poster} alt="poster" className="img-fluid" />
-                </div>
-                
-                <div>
-                    <img src={poster} alt="poster" className="img-fluid" />
-                </div>
-                
-                <div>
-                    <img src={poster} alt="poster" className="img-fluid" />
-                </div>
+                <div><img src={poster} alt="poster" className="img-fluid" /></div>
+                <div><img src={poster} alt="poster" className="img-fluid" /></div>
+                <div><img src={poster} alt="poster" className="img-fluid" /></div>
             </Slider>
         </div>
 
