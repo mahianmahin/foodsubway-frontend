@@ -1,0 +1,42 @@
+.navbar_main {
+    padding: 23px 0px;
+}
+
+.logo img {
+    width: 95px;
+    height: 49px;
+}
+
+.links {
+    font-size: 20px;
+    font-family: 'Raleway';
+}
+
+.links span {
+    margin: 0px 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.links span:hover {
+    color: var(--green);
+}
+
+.links button {
+    border-radius: 8px;
+    margin: 0px 10px;
+    font-weight: 700;
+    color: white;
+    outline: none;
+    border: none;
+    width: 106px;
+    height: 34px;
+}
+
+.links #login_button {
+    background-color: var(--orange);
+}
+
+.links #signup_button {
+    background-color: var(--green);
+}
