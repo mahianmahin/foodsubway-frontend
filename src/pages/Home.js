@@ -1,7 +1,10 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import asset1 from '../assets/asset-1.png';
+import asset2 from '../assets/asset-2.png';
 import poster from '../assets/poster.png';
+import Blog from "../components/Blog";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
 import '../styles/Home.css';
@@ -9,7 +12,7 @@ import '../styles/Home.css';
 export default function Home() {
     const settings = {
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -84,6 +87,24 @@ export default function Home() {
                 <Product />
                 <Product />
             </Slider>
+        </div>
+        
+        <div className="container-fluid blog">
+            <div className="section container">
+                <span className="heading">Blogs</span>
+
+                <Slider {...productSettings} className="product_section my-3 d-flex">
+                    <Blog />
+                    <Blog />
+                    <Blog />
+                    <Blog />
+                </Slider>
+            </div>
+        </div>
+
+        <div className="container image_box my-5 d-flex justify-content-between align-items-center flex-wrap">
+            <img src={asset2} alt="asset2" className="img-fluid" />
+            <img src={asset1} alt="asset1" className="img-fluid" />
         </div>
 
         </>
