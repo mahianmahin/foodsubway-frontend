@@ -57,7 +57,7 @@
 
 @media (max-width: 426px) {
     .product {
-        width: 280px;
+        width: 95%;
     }
 
     .product img {

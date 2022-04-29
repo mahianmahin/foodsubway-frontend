@@ -5,4 +5,10 @@
 
 body {
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-arrow {
+    display: none !important;
 }

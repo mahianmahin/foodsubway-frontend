@@ -9,7 +9,7 @@ import '../styles/Home.css';
 export default function Home() {
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
