@@ -9,10 +9,10 @@
     margin-top: 100px;
 }
 
-.product_section {
+/* .product_section {
     overflow-x: scroll;
 
-}
+} */
 
 .product_section::-webkit-scrollbar {
     width: 8px;
@@ -37,4 +37,18 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: var(--orange);
+}
+
+@media (max-width: 426px) {
+    .heading {
+        font-size: 30px;
+    }
+
+    .product_section {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        /* align-items: ; */
+    }
 }

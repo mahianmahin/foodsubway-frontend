@@ -14,18 +14,18 @@ export default function Product() {
 
             <div className="price d-flex justify-content-between align-items-center">
                 <div className="d-flex flex-column align-items-center price_box" id='first'>
-                    <span style={{fontWeight: 800, fontSize: 18, margin: '0px', padding: '0px'}}>89 ৳</span>
-                    <span style={{fontWeight: 500, fontSize: 13}}>per kg</span>
+                    <span className='price_amount'>89 ৳</span>
+                    <span className='unit'>per kg</span>
                 </div>
                 
                 <div className="d-flex flex-column align-items-center price_box" id='second'>
-                    <span style={{fontWeight: 800, fontSize: 18, margin: '0px', padding: '0px'}}>289 ৳</span>
-                    <span style={{fontWeight: 500, fontSize: 13}}>3 kg</span>
+                    <span className='price_amount'>289 ৳</span>
+                    <span className='unit'>3 kg</span>
                 </div>
                 
                 <div className="d-flex flex-column align-items-center price_box" id='third'>
-                    <span style={{fontWeight: 800, fontSize: 18, margin: '0px', padding: '0px'}}>489 ৳</span>
-                    <span style={{fontWeight: 500, fontSize: 13}}>5  kg</span>
+                    <span className='price_amount'>489 ৳</span>
+                    <span className='unit'>5  kg</span>
                 </div>
             </div>
 

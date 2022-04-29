@@ -14,7 +14,42 @@ export default function Home() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplayspeed: 6000
+        autoplayspeed: 6000,
+    };
+    
+    const productSettings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplayspeed: 6000,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: false
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
     };
 
     return (
@@ -32,23 +67,23 @@ export default function Home() {
         <div className="section container">
             <span className="heading">New Products</span>
 
-            <div className="product_section my-3 d-flex">
+            <Slider {...productSettings} className="product_section my-3 d-flex">
                 <Product />
                 <Product />
                 <Product />
                 <Product />
-            </div>
+            </Slider>
         </div>
         
         <div className="section container">
             <span className="heading">Popular Products</span>
 
-            <div className="product_section my-3 d-flex">
+            <Slider {...productSettings} className="product_section my-3 d-flex">
                 <Product />
                 <Product />
                 <Product />
                 <Product />
-            </div>
+            </Slider>
         </div>
 
         </>

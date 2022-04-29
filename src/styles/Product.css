@@ -44,3 +44,45 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.price_amount {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.unit {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+@media (max-width: 426px) {
+    .product {
+        width: 280px;
+    }
+
+    .product img {
+        height: 150px;
+    }
+
+    .order_button {
+        height: 50px;
+    }
+
+    .price_amount {
+        font-size: 14px;
+    }
+
+    .unit {
+        font-size: 11px;
+    }
+
+    .product {
+        margin: 5px 5px;
+    }
+
+    .price_box {
+        height: 43px;
+        width: 90px;
+    }
+
+}
