@@ -5,6 +5,7 @@ import asset1 from '../assets/asset-1.png';
 import asset2 from '../assets/asset-2.png';
 import poster from '../assets/poster.png';
 import Blog from "../components/Blog";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
 import '../styles/Home.css';
@@ -106,6 +107,8 @@ export default function Home() {
             <img src={asset2} alt="asset2" className="img-fluid" />
             <img src={asset1} alt="asset1" className="img-fluid" />
         </div>
+
+        <Footer />
 
         </>
     )

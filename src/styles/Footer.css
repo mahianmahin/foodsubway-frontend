@@ -1,0 +1,46 @@
+.footer_main {
+    background-color: black;
+}
+
+.footer_inner {
+    color: white;
+    padding-top: 100px;
+}
+
+.brand {
+    width: 300px;
+    height: auto;
+}
+
+.brand img {
+    width: 50%;
+}
+
+.contact_info img {
+    height: 40px;
+    width: 40px;
+}
+
+.email_box {
+    width: 300px;
+    height: 60px;
+    border-radius: 8px;
+    border: 2px solid white;
+}
+
+.email_box input {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+.email_box button {
+    background: transparent;
+    border: none;
+    color: var(--green);
+    border-left: 1px solid var(--green);
+}
+
+.subscription img {
+    width: 150px;
+}
