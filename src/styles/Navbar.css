@@ -12,11 +12,16 @@
     font-family: 'Raleway';
 }
 
-.links span,
+.links .span,
 .phone_navbar span {
     margin: 0px 20px;
     cursor: pointer;
     transition: .2s;
+}
+
+.links_section a {
+    text-decoration: none;
+    color: black;
 }
 
 .links img {
@@ -62,6 +67,11 @@
     top: 0;
     width: 100%;
     z-index: 2000;
+}
+
+.phone_navbar a {
+    text-decoration: none;
+    color: black;
 }
 
 .phone_navbar span {

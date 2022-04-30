@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import facebook_logo from '../assets/facebook_logo.png';
 import location_icon from '../assets/location_icon.png';
 import mail_icon from '../assets/mail_icon.png';
@@ -15,12 +16,12 @@ export default function Footer() {
                 </div>
                 
                 <div className="d-flex mb-3 flex-column justify-content-center align-items-start footer_links">
-                    <span>Home</span>
-                    <span>Products</span>
-                    <span>Blogs</span>
-                    <span>Contact Us</span>
-                    <span>About Us</span>
-                    <span>Privacy Policy</span>
+                    <Link to="/"><span>Home</span></Link>
+                    <Link to="/products"><span>Products</span></Link>
+                    <Link to="/"><span>Blogs</span></Link>
+                    <Link to="/"><span>Contact Us</span></Link>
+                    <Link to="/"><span>About Us</span></Link>
+                    <Link to="/"><span>Privacy Policy</span></Link>
                 </div>
                 
                 <div className="d-flex mb-3 contact_info flex-column justify-content-center align-items-start">
@@ -57,7 +58,12 @@ export default function Footer() {
                     </div> */}
                 
                 </div>
+                <div className="footer_bar"></div>
+                <div className="d-flex justify-content-center mb-3 w-100">
+                    <span style={{textAlign: 'center', fontSize: 14}}>All rights preserved by <b>Food Subway</b></span>
+                </div>
             </div>
+
         </div>
     )
 }

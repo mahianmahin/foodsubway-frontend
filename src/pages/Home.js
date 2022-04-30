@@ -58,6 +58,7 @@ export default function Home() {
 
     return (
         <>
+        <div className='d-flex justify-content-center' style={{padding: '5px', backgroundColor: 'orange', fontWeight: 'bold', textAlign: 'center'}}>This website is currently under construction!</div>
         <Navbar />
 
         <div className="container slider_box">
