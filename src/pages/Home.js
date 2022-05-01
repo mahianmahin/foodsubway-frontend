@@ -5,6 +5,7 @@ import asset1 from '../assets/asset-1.png';
 import asset2 from '../assets/asset-2.png';
 import poster from '../assets/poster.png';
 import Blog from "../components/Blog";
+import Construction from '../components/Construction';
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
@@ -58,7 +59,7 @@ export default function Home() {
 
     return (
         <>
-        <div className='d-flex justify-content-center' style={{padding: '5px', backgroundColor: 'orange', fontWeight: 'bold', textAlign: 'center'}}>This website is currently under construction!</div>
+        <Construction />
         <Navbar />
 
         <div className="container slider_box">

@@ -1,0 +1,43 @@
+.categories_box {
+    height: 93px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    padding: 15px 22px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.categories_box::-webkit-scrollbar {
+    display: none;
+}
+
+.categories_box div {
+    height: 64px;
+    min-width: 204px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E9E9E9;
+    margin: 0px 15px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.categories_box div.active {
+    background-color: var(--green);
+    color: white;
+}
+
+@media (max-width: 426px) {
+    .categories_box {
+        height: 60px;
+        padding: 10px 5px;
+    }
+
+    .categories_box div {
+        height: 40px;
+        font-size: 13px;
+        min-width: 100px;
+    }
+}
