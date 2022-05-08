@@ -1,0 +1,17 @@
+.blogs_main span {
+    font-size: 28px;
+}
+
+.blog_heading {
+    font-size: 70px !important;
+}
+
+@media (max-width: 426px) {
+    .blogs_main span {
+        font-size: 19px;
+    }
+
+    .blog_heading {
+        font-size: 40px !important;
+    }
+}

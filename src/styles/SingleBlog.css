@@ -1,0 +1,8 @@
+.blog_body {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.blog_body img {
+    object-fit: cover;
+}

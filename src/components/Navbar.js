@@ -20,7 +20,7 @@ export default function Navbar() {
                 <div className="links_section">
                     <Link to="/"><span className='span'>Home</span></Link>
                     <Link to="/products"><span className='span'>Products</span></Link>
-                    <Link to="/"><span className='span'>Blogs</span></Link>
+                    <Link to="/blogs"><span className='span'>Blogs</span></Link>
                     <Link to="/"><span className='span'>Contact Us</span></Link>
                     <Link to="/"><span className='span'>About Us</span></Link>
                     
@@ -40,7 +40,7 @@ export default function Navbar() {
 
             <Link to="/"><span>Home</span></Link>
             <Link to="/products"><span>Products</span></Link>
-            <Link to="/"><span>Blogs</span></Link>
+            <Link to="/blogs"><span>Blogs</span></Link>
             <Link to="/"><span>Contact Us</span></Link>
             <Link to="/"><span>About Us</span></Link>
 {/* 

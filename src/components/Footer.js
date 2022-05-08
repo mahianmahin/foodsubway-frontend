@@ -18,7 +18,7 @@ export default function Footer() {
                 <div className="d-flex mb-3 flex-column justify-content-center align-items-start footer_links">
                     <Link to="/"><span>Home</span></Link>
                     <Link to="/products"><span>Products</span></Link>
-                    <Link to="/"><span>Blogs</span></Link>
+                    <Link to="/blogs"><span>Blogs</span></Link>
                     <Link to="/"><span>Contact Us</span></Link>
                     <Link to="/"><span>About Us</span></Link>
                     <Link to="/"><span>Privacy Policy</span></Link>
