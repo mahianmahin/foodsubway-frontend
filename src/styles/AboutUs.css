@@ -1,0 +1,9 @@
+.about_us_heading h1 {
+    font-weight: 600;
+    color: white;
+}
+
+.about_us_heading {
+    background-color: var(--green);
+    padding: 80px 0px;
+}

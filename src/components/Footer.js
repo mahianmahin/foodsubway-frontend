@@ -19,9 +19,9 @@ export default function Footer() {
                     <Link to="/"><span>Home</span></Link>
                     <Link to="/products"><span>Products</span></Link>
                     <Link to="/blogs"><span>Blogs</span></Link>
-                    <Link to="/"><span>Contact Us</span></Link>
-                    <Link to="/"><span>About Us</span></Link>
-                    <Link to="/"><span>Privacy Policy</span></Link>
+                    <Link to="/contact"><span>Contact Us</span></Link>
+                    <Link to="/about"><span>About Us</span></Link>
+                    <Link to="/privacy-policy"><span>Privacy Policy</span></Link>
                 </div>
                 
                 <div className="d-flex mb-3 contact_info flex-column justify-content-center align-items-start">

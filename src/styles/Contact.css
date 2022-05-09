@@ -1,0 +1,19 @@
+.contact_container {
+    height: 100vh;
+    background-color: var(--green);
+}
+
+.contact_container img {
+    width: 170px;
+    height: auto;
+}
+
+.holder {
+    height: 100vh;
+    width: 280px;
+}
+
+.holder span {
+    margin-top: 30px;
+    color: white;
+}
