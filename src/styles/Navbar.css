@@ -29,6 +29,12 @@
     width: 43px;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
+    transition: .2s ease-out;
+}
+
+.links img:hover {
+    border: 3px solid var(--orange);
 }
 
 .links span:hover {

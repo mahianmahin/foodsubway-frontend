@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom';
 import avatar from '../assets/avatar.png';
 import logo from '../assets/main_logo_black.png';
 import '../styles/Navbar.css';
+import Menu from './Menu';
 
 
 export default function Navbar() {
     const [phoneNavbar, setPhoneNavbar] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
     return (
         <>
+        { showMenu && <Menu /> }
         <div className="navbar_main d-flex align-items-center justify-content-between container">
             <div className="logo mx-2">
                 <img src={logo} alt="logo" />
@@ -29,11 +32,12 @@ export default function Navbar() {
                 </div>
 
 
-                <img src={avatar} alt="avatar" />
+                <img onClick={() => setShowMenu(!showMenu)} src={avatar} alt="avatar" />
 
                 <FontAwesomeIcon onClick={() => {setPhoneNavbar(!phoneNavbar)}} icon={faBars} className='bars mx-3' />
             </div>
         </div>
+
 
         {phoneNavbar && <div className="phone_navbar d-flex flex-column justify-content-center align-items-center">
             <img src={logo} alt="logo" />
