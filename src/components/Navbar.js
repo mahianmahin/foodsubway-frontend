@@ -32,7 +32,7 @@ export default function Navbar() {
                 </div>
 
 
-                <img onClick={() => setShowMenu(!showMenu)} src={avatar} alt="avatar" />
+                <img id="proPic" onClick={() => {setShowMenu(!showMenu)}} src={avatar} alt="avatar" />
 
                 <FontAwesomeIcon onClick={() => {setPhoneNavbar(!phoneNavbar)}} icon={faBars} className='bars mx-3' />
             </div>

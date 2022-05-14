@@ -1,9 +1,12 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router';
 import product from '../assets/pro-1.png';
 import '../styles/Product.css';
 
 export default function Product() {
+    var navigate = useNavigate();
+
     return (
         <div className="product d-flex flex-column">
             <img src={product} alt="product" />
@@ -29,7 +32,7 @@ export default function Product() {
                 </div>
             </div>
 
-            <button className='order_button'><FontAwesomeIcon icon={faShoppingCart} /> Order now!</button>
+            <button onClick={() => navigate('mango')} className='order_button'><FontAwesomeIcon icon={faShoppingCart} /> Order now!</button>
         </div>
     )
 }

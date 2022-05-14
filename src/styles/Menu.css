@@ -34,3 +34,38 @@
         width: 140px;
     }
 }
+
+/* @media (max-width: 2560px) and (min-width:) {
+    .menu_body {
+        top: 7%;
+        right: 21%;
+    }
+} */
+
+@media (max-width: 1441px) {
+    .menu_body {
+        top: 12%;
+        right: 1%;
+    }
+}
+
+@media (max-width: 1025px) {
+    .menu_body {
+        top: 14%;
+        right: 1%;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu_body {
+        top: 17%;
+        right: 1%;
+    }
+}
+
+@media (max-width: 320px) {
+    .menu_body {
+        top: 21%;
+        right: 1%;
+    }
+}
