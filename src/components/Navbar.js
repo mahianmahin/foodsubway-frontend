@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import avatar from "../assets/avatar.png";
 import logo from '../assets/main_logo_black.png';
 import '../styles/Navbar.css';
 import Menu from './Menu';
@@ -11,6 +12,8 @@ import Menu from './Menu';
 export default function Navbar() {
     const [phoneNavbar, setPhoneNavbar] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+
+    var logged_in = false;
 
     const navigate = useNavigate();
 
@@ -34,7 +37,7 @@ export default function Navbar() {
                 </div>
 
 
-                {/* <img id="proPic" onClick={() => {setShowMenu(!showMenu)}} src={avatar} alt="avatar" /> */}
+                {logged_in && <img id="proPic" onClick={() => {setShowMenu(!showMenu)}} src={avatar} alt="avatar" />}
 
                 <FontAwesomeIcon onClick={() => {setPhoneNavbar(!phoneNavbar)}} icon={faBars} className='bars mx-3' />
             </div>
