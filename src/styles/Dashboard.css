@@ -44,8 +44,8 @@
     }
 
     .order_history_table {
-        width: 200px !important;
-        font-size: 10px;
+        /* width: 200px !important; */
+        font-size: 14px;
     }
 
     /* .history_table {

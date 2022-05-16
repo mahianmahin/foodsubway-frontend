@@ -18,6 +18,7 @@ export default function Dashboard() {
                         <span className="name">Fresh Mangoes from Rajshahi</span>
                     </div>
 
+                    <div className="d-flex details_box"><span>ID</span> <span>:</span> <span className="mx-3">FSDW345</span></div>
                     <div className="d-flex details_box"><span>Quantity</span> <span>:</span> <span className="mx-3">3 kg</span></div>
                     <div className="d-flex details_box"><span>Total</span> <span>:</span> <span className="mx-3">200 ৳</span></div>
                     <div className="d-flex details_box" id="order_status"><span>Order Status</span> <span>:</span> <span className="mx-3" id="order_status_text">On the way</span></div>
@@ -29,6 +30,7 @@ export default function Dashboard() {
                         <span className="name">Fresh Mangoes from Rajshahi</span>
                     </div>
 
+                    <div className="d-flex details_box"><span>ID</span> <span>:</span> <span className="mx-3">FSDW345</span></div>
                     <div className="d-flex details_box"><span>Quantity</span> <span>:</span> <span className="mx-3">3 kg</span></div>
                     <div className="d-flex details_box"><span>Total</span> <span>:</span> <span className="mx-3">200 ৳</span></div>
                     <div className="d-flex details_box" id="order_status"><span>Order Status</span> <span>:</span> <span className="mx-3" id="order_status_text">On the way</span></div>
@@ -44,8 +46,6 @@ export default function Dashboard() {
                     <tr>
                     <th>ID</th>
                     <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
                     <th>Date</th>
                     <th>Status</th>
                     </tr>
@@ -54,9 +54,7 @@ export default function Dashboard() {
                     
                     <tr>
                     <th>#FDSW9385</th>
-                    <td>Mangoes from Rajshahi</td>
-                    <td>3 kg</td>
-                    <td>545 ৳</td>
+                    <td>Mangoes from Rajshahi - 3kg - 340 ৳ </td>
                     <td>15/05/2022</td>
                     <td>Delivered</td>
                     </tr>

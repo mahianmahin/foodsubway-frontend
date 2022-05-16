@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
-import avatar from '../assets/avatar.png';
 import logo from '../assets/main_logo_black.png';
 import '../styles/Navbar.css';
 import Menu from './Menu';
@@ -30,12 +29,12 @@ export default function Navbar() {
                     <Link to="/contact"><span className='span'>Contact Us</span></Link>
                     <Link to="/about"><span className='span'>About Us</span></Link>
                     
-                    {/* <button id='login_button'>Login</button>
-                    <button id='signup_button'>Signup</button> */}
+                    <button onClick={() => navigate('/login')} id='login_button'>Login</button>
+                    <button onClick={() => navigate('/signup')} id='signup_button'>Signup</button>
                 </div>
 
 
-                <img id="proPic" onClick={() => {setShowMenu(!showMenu)}} src={avatar} alt="avatar" />
+                {/* <img id="proPic" onClick={() => {setShowMenu(!showMenu)}} src={avatar} alt="avatar" /> */}
 
                 <FontAwesomeIcon onClick={() => {setPhoneNavbar(!phoneNavbar)}} icon={faBars} className='bars mx-3' />
             </div>
@@ -50,9 +49,9 @@ export default function Navbar() {
             <Link to="/blogs"><span>Blogs</span></Link>
             <Link to="/contact"><span>Contact Us</span></Link>
             <Link to="/about"><span>About Us</span></Link>
-{/* 
-            <button id='login_button'>Login</button>
-            <button id='signup_button'>Signup</button> */}
+
+            {/* <button onClick={() => navigate('/login')} id='login_button'>Login</button>
+            <button onClick={() => navigate('/signup')} id='signup_button'>Signup</button> */}
             
             <button onClick={() => navigate('dashboard')} id='login_button'>Dashboard</button>
             <button id='signup_button'>Logout</button>

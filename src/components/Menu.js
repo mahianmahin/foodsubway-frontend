@@ -7,9 +7,9 @@ export default function Menu() {
     return (
         <>
         <div className="menu_body d-flex flex-column">
-            <span onClick={() => navigate('dashboard')}>Dashboard</span>
+            <span onClick={() => navigate('/dashboard')}>Dashboard</span>
             <div className="menu_bar"></div>
-            <span>Edit Profile</span>
+            <span onClick={() => navigate('/profile')}>Edit Profile</span>
             <div className="menu_bar"></div>
             <span style={{color: 'orange'}}>Logout</span>
         </div>
