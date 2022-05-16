@@ -35,7 +35,8 @@
         background-color: var(--green);
     }
 
-    .stock {
+    .stock,
+    .product_id {
         min-width: 100px;
         padding: 0px 5px;
         height: 35px;
@@ -44,6 +45,10 @@
         color: white;
         font-weight: 500;
         margin-top: 10px;
+    }
+
+    .product_id {
+        background-color: var(--orange);
     }
 
     .stock .dot {
@@ -123,6 +128,15 @@
     .description {
         max-width: 500px;
     }
+
+    /* 
+    .product_id {
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--orange);
+    } */
 
 
     @media (max-width: 1024px) {

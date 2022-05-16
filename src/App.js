@@ -3,6 +3,7 @@ import AboutUs from './pages/AboutUs';
 import Blogs from './pages/Blogs';
 import Checkout from './pages/Checkout';
 import ContactUs from './pages/ContactUs';
+import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import OrderDone from './pages/OrderDone';
 import Privacy from './pages/Privacy';
@@ -15,6 +16,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/products' element={<Products />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/about' element={<AboutUs />} />

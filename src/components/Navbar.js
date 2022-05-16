@@ -1,6 +1,7 @@
 import { faBars, faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import avatar from '../assets/avatar.png';
 import logo from '../assets/main_logo_black.png';
@@ -11,6 +12,8 @@ import Menu from './Menu';
 export default function Navbar() {
     const [phoneNavbar, setPhoneNavbar] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+
+    const navigate = useNavigate();
 
     return (
         <>
@@ -51,7 +54,7 @@ export default function Navbar() {
             <button id='login_button'>Login</button>
             <button id='signup_button'>Signup</button> */}
             
-            <button id='login_button'>Dashboard</button>
+            <button onClick={() => navigate('dashboard')} id='login_button'>Dashboard</button>
             <button id='signup_button'>Logout</button>
 
             <button onClick={() => {setPhoneNavbar(!phoneNavbar)}} id='back_button'><FontAwesomeIcon icon={faCircleLeft} /> Back</button>

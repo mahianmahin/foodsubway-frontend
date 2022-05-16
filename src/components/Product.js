@@ -1,7 +1,8 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router';
-import product from '../assets/pro-1.png';
+// import product from '../assets/pro-1.png';
+import product from '../assets/guava_2.png';
 import '../styles/Product.css';
 
 export default function Product() {
@@ -32,7 +33,7 @@ export default function Product() {
                 </div>
             </div>
 
-            <button onClick={() => navigate('mango')} className='order_button'><FontAwesomeIcon icon={faShoppingCart} /> Order now!</button>
+            <button onClick={() => navigate('/products/mango')} className='order_button'><FontAwesomeIcon icon={faShoppingCart} /> Order now!</button>
         </div>
     )
 }
