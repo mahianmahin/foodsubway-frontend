@@ -18,6 +18,11 @@ export default function EditProfile() {
                     </div>
                     
                     <div className="d-flex flex-wrap">
+                        <input type="password" placeholder="Password" />
+                        <input type="password" placeholder="Confirm password" />
+                    </div>
+                    
+                    <div className="d-flex flex-wrap">
                         <input type="text" placeholder="Email address" />
                         <select name="district" id="">
                             <option value="" selected disabled>District</option>
