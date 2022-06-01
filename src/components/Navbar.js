@@ -1,6 +1,7 @@
 import { faBars, faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+// import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import avatar from "../assets/avatar.png";
@@ -16,6 +17,26 @@ export default function Navbar() {
     var logged_in = false;
 
     const navigate = useNavigate();
+
+    
+    const header = {
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    // https://api.chucknorris.io/jokes/random
+
+    useEffect(() => {
+        // axios.get("http://127.0.0.1:8000/", options).then(response => console.log(response.data));
+        fetch('https://foodsubwayapiend.pythonanywhere.com/', header)
+        // fetch('https://api.chucknorris.io/jokes/random')
+        .then((response) => {
+            console.log(response);
+            return response.json();
+        }).then(data => console.log(data));
+    }, [])
 
     return (
         <>
