@@ -1,4 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Construction from './components/Construction';
 import AboutUs from './pages/AboutUs';
 import Blogs from './pages/Blogs';
 import Checkout from './pages/Checkout';
@@ -14,25 +16,36 @@ import Products from './pages/Products';
 import Signup from './pages/Signup';
 import SingleBlog from './pages/SingleBlog';
 
+export const UtilitiesContext = React.createContext();
+
 export default function App() {
+  const utilities = {
+    baseUrl: "http://127.0.0.1:8000"
+  }
+
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/profile' element={<EditProfile />} />
-        <Route path='/products' element={<Products />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/blogs' element={<Blogs />} />
-        <Route path='/about' element={<AboutUs />} />
-        <Route path='/contact' element={<ContactUs />} />
-        <Route path='/privacy-policy' element={<Privacy />} />
-        <Route path='/products/:productName/checkout' element={<Checkout />} />
-        <Route path='/products/:productName/checkout/completed' element={<OrderDone />} />
-        <Route path='/blogs/:blogName' element={<SingleBlog />} />
-        <Route path='/products/:productName' element={<ProductDetails />} />
-      </Routes>
+      <Switch>
+        <UtilitiesContext.Provider value={utilities}>
+          <Construction />
+          {/* <Route path='/' element={<Home />} /> */}
+          <Route exact path='/'> <Home /> </Route>
+          <Route exact path='/dashboard'> <Dashboard /> </Route>
+          <Route exact path='/profile'> <EditProfile /> </Route>
+          <Route exact path='/products'> <Products /> </Route>
+          <Route exact path='/login'> <Login /> </Route>
+          <Route exact path='/signup'> <Signup /> </Route>
+          <Route exact path='/blogs'> <Blogs /> </Route>
+          <Route exact path='/about'> <AboutUs /> </Route>
+          <Route exact path='/contact'> <ContactUs /> </Route>
+          <Route exact path='/privacy-policy'> <Privacy /> </Route>
+          <Route exact path='/products/:productCode/checkout'> <Checkout /> </Route>
+          <Route exact path='/products/:productCode/checkout/completed'> <OrderDone /> </Route>
+          <Route exact path='/blogs/:blogName'> <SingleBlog /> </Route>
+          <Route exact path='/products/:productCode'> <ProductDetails /> </Route>
+        </UtilitiesContext.Provider>
+      </Switch>
     </BrowserRouter>
   )
 }

@@ -8,10 +8,6 @@
     overflow-y: hidden;
 }
 
-.product {
-    /* border: 1px solid black; */
-}
-
 .categories_box::-webkit-scrollbar {
     display: none;
 }
@@ -26,6 +22,7 @@
     margin: 0px 15px;
     font-weight: 700;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .categories_box div.active {

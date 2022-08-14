@@ -1,11 +1,13 @@
 import { faBars, faCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import avatar from "../assets/avatar.png";
+import { UtilitiesContext } from '../App';
+// import avatar from "../assets/avatar.png";
 import logo from '../assets/main_logo_black.png';
+import useAuthenticate from '../hooks/useAuthenticate';
 import '../styles/Navbar.css';
 import Menu from './Menu';
 
@@ -14,29 +16,14 @@ export default function Navbar() {
     const [phoneNavbar, setPhoneNavbar] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
 
-    var logged_in = false;
-
-    const navigate = useNavigate();
-
+    const navigate = useHistory();
+    const context = useContext(UtilitiesContext);
     
-    const header = {
-        mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/json',
-        }
+    const handleLogout = () => {
+        window.localStorage.clear();
+        navigate.push('/');
+        console.log('LoggedOut');
     }
-
-    // https://api.chucknorris.io/jokes/random
-
-    useEffect(() => {
-        // axios.get("http://127.0.0.1:8000/", options).then(response => console.log(response.data));
-        fetch('https://foodsubwayapiend.pythonanywhere.com/', header)
-        // fetch('https://api.chucknorris.io/jokes/random')
-        .then((response) => {
-            console.log(response);
-            return response.json();
-        }).then(data => console.log(data));
-    }, [])
 
     return (
         <>
@@ -53,12 +40,11 @@ export default function Navbar() {
                     <Link to="/contact"><span className='span'>Contact Us</span></Link>
                     <Link to="/about"><span className='span'>About Us</span></Link>
                     
-                    <button onClick={() => navigate('/login')} id='login_button'>Login</button>
-                    <button onClick={() => navigate('/signup')} id='signup_button'>Signup</button>
+                    {!useAuthenticate() && <button onClick={() => navigate.push('/login')} id='login_button'>Login</button>}
+                    {!useAuthenticate() && <button onClick={() => navigate.push('/signup')} id='signup_button'>Signup</button>}
                 </div>
 
-
-                {logged_in && <img id="proPic" onClick={() => {setShowMenu(!showMenu)}} src={avatar} alt="avatar" />}
+                {useAuthenticate() && <img id="proPic" onClick={() => {setShowMenu(!showMenu)}} src={`${context.baseUrl}${window.localStorage.getItem('profile_pic')}`} alt="avatar" />}
 
                 <FontAwesomeIcon onClick={() => {setPhoneNavbar(!phoneNavbar)}} icon={faBars} className='bars mx-3' />
             </div>
@@ -74,11 +60,11 @@ export default function Navbar() {
             <Link to="/contact"><span>Contact Us</span></Link>
             <Link to="/about"><span>About Us</span></Link>
 
-            {/* <button onClick={() => navigate('/login')} id='login_button'>Login</button>
-            <button onClick={() => navigate('/signup')} id='signup_button'>Signup</button> */}
+            {/* <button onClick={() => navigate.push('/login')} id='login_button'>Login</button>
+            <button onClick={() => navigate.push('/signup')} id='signup_button'>Signup</button> */}
             
-            <button onClick={() => navigate('dashboard')} id='login_button'>Dashboard</button>
-            <button id='signup_button'>Logout</button>
+            <button onClick={() => navigate.push('dashboard')} id='login_button'>Dashboard</button>
+            <button onClick={handleLogout} id='signup_button'>Logout</button>
 
             <button onClick={() => {setPhoneNavbar(!phoneNavbar)}} id='back_button'><FontAwesomeIcon icon={faCircleLeft} /> Back</button>
             

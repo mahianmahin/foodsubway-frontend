@@ -1,17 +1,36 @@
+import { useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import { UtilitiesContext } from "../App";
 import asset1 from '../assets/asset-1.png';
 import asset2 from '../assets/asset-2.png';
 import poster from '../assets/poster.png';
 import Blog from "../components/Blog";
-import Construction from '../components/Construction';
+// import Construction from '../components/Construction';
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Product from "../components/Product";
 import '../styles/Home.css';
 
 export default function Home() {
+    const context = useContext(UtilitiesContext);
+
+    const [newProducts, setNewProducts] = useState([]);
+    const [popularProducts, setPopularProducts] = useState([]);
+
+    useEffect(() => {
+        // fetch(context.baseUrl + '/products/new/', {'headers': authHeader})
+        fetch(context.baseUrl + '/products/new/')
+        .then(response => response.json())
+        .then(data => setNewProducts(data.data));
+        
+        fetch(context.baseUrl + '/products/popular/')
+        .then(response => response.json())
+        .then(data => setPopularProducts(data.data));
+    }, [])
+    
+
     const settings = {
         dots: true,
         infinite: true,
@@ -59,7 +78,7 @@ export default function Home() {
 
     return (
         <>
-        <Construction />
+        {/* <Construction /> */}
         <Navbar />
 
         <div className="container slider_box">
@@ -74,10 +93,8 @@ export default function Home() {
             <span className="heading">New Products</span>
 
             <Slider {...productSettings} className="product_section my-3 d-flex">
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+                {newProducts.length === 0 ? <span>Loading...</span> : newProducts.length !== 0 && newProducts.map(item => <Product name={item.name} code={item.code} price={item.price} unit={item.unit} image={item.main_image} /> )}
+                {/* <Product /> */}
             </Slider>
         </div>
         
@@ -85,10 +102,8 @@ export default function Home() {
             <span className="heading">Popular Products</span>
 
             <Slider {...productSettings} className="product_section my-3 d-flex">
-                <Product />
-                <Product />
-                <Product />
-                <Product />
+            {popularProducts.length === 0 ? <span>Loading...</span> : popularProducts.length !== 0 && popularProducts.map(item => <Product name={item.name} code={item.code} price={item.price} unit={item.unit} image={item.main_image} /> )}
+                {/* <Product /> */}
             </Slider>
         </div>
         

@@ -9,7 +9,7 @@ export default function Blog() {
             <div className="inner">
                 <div className="blog_name mt-2">What fruit should you eat in the breakfast and before sleep!</div>
                 <div className="description my-4">Lorem ipsum dolor sit amet, consectetur adipiscing velit, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, sequi.... </div>
-                <Link to='healthylife'><button>Read more...</button></Link>
+                <Link to='blogs/healthylife'><button>Read more...</button></Link>
             </div>
         </div>
     )

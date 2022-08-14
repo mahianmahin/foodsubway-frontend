@@ -1,80 +1,105 @@
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router';
-import image_main from "../assets/product_main.png";
-import image_1 from "../assets/product_pic_1.png";
-import image_2 from "../assets/product_pic_2.png";
-import image_3 from "../assets/product_pic_3.png";
-import Construction from "../components/Construction";
+import { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { useParams } from 'react-router-dom';
+import { UtilitiesContext } from '../App';
 import Navbar from "../components/Navbar";
 import "../styles/ProductDetails.css";
 
 export default function ProductDetails() {
-    var navigate = useNavigate();
+    var navigate = useHistory();
+    let { productCode } = useParams();
+    const context = useContext(UtilitiesContext);
+
+    const [productDetails, setProductDetails] = useState({});
+    const [selectedPrice, setSelectedPrice] = useState(0);
+
+    useEffect(() => {
+        fetch(context.baseUrl + '/products/single/' + productCode + '/')
+        .then(response => response.json())
+        .then(data => {
+            setProductDetails(data.data)
+        });
+
+        // setSelectedPrice(productDetails.price && Object.values(productDetails.price)[0]);
+    }, [])
+
+    const setProduct = () => {
+        for (var item in productDetails) {
+            window.sessionStorage.setItem(item, productDetails[item]);
+        }
+    }
+
+    const selectPrice = (value) => {
+        setSelectedPrice(productDetails.price[value]);
+
+        window.sessionStorage.setItem('quantity', value);
+        window.sessionStorage.setItem('total_price', selectedPrice);
+    }
 
     return (
         <>
-        <Construction />
         <Navbar />
         <div className="container">
             <div className="row my-3">
                 <div className="col-md-6 d-flex justify-content-center align-items-center">
                     <div className="d-flex flex-column images">
-                        <img src={image_main} alt="main_pic" className="img-fluid" />
+                        <img src={`${context.baseUrl}${productDetails.thumb_one}`} alt="main_pic" className="img-fluid" />
                         <div className="d-flex justify-content-center align-items center sub_images mt-1">
-                            <img src={image_1} alt="" className="img-fluid" />
-                            <img src={image_2} alt="" className="img-fluid" />
-                            <img src={image_3} alt="" className="img-fluid" />
+                            <img src={`${context.baseUrl}${productDetails.thumb_one}`} alt="" className="img-fluid" />
+                            <img src={`${context.baseUrl}${productDetails.thumb_two}`} alt="" className="img-fluid" />
+                            <img src={`${context.baseUrl}${productDetails.thumb_three}`} alt="" className="img-fluid" />
                         </div>
                     </div>
                 </div>
                 <div className="col-md-6 d-flex flex-column justify-content-start align-items-start">
-                    <span className="product_heading">Fresh mangoes from Rajshahi</span>
+                    <span className="product_heading">{productDetails.name}</span>
 
                     <div className="d-flex align-items-center">
-                        <div className="stock d-flex justify-content-center align-items-center"><div className="dot"><div className="inner_dot"></div></div>Available</div>
-                        {/* <div className="stock out_of_stock d-flex justify-content-center align-items-center"><div className="dot"><div className="inner_dot"></div></div>Out of Stock</div> */}
-
-                        <div className="product_id d-flex justify-content-center align-items-center mx-2">FDSW4958</div>
+                        {productDetails.available ? <div className="stock d-flex justify-content-center align-items-center"><div className="dot"><div className="inner_dot"></div></div>Available</div> : <div className="stock out_of_stock d-flex justify-content-center align-items-center"><div className="dot"><div className="inner_dot"></div></div>Out of Stock</div>}
+                        
+                        <div className="product_id d-flex justify-content-center align-items-center mx-2">{productDetails.code}</div>
                     </div>
 
                     <div className="price_tag_section d-flex justify-content-center align-items-center my-3">
                         <div id="per_kg" className="price_tag d-flex flex-column justify-content-center align-items-center">
-                            <span className="price">89 ৳</span>
-                            <span>per kg</span>
+                            <span className="price">{productDetails.price && Object.values(productDetails.price)[0]} ৳</span>
+                            <span>{productDetails.price && Object.keys(productDetails.price)[0]} {productDetails.unit}</span>
                         </div>
 
                         <div id="three_kg" className="price_tag d-flex flex-column justify-content-center align-items-center">
-                            <span className="price">289 ৳</span>
-                            <span>3 kg</span>
+                            <span className="price">{productDetails.price && Object.values(productDetails.price)[1]} ৳</span>
+                            <span>{productDetails.price && Object.keys(productDetails.price)[1]} {productDetails.unit}</span>
                         </div>
 
                         <div id="five_kg" className="price_tag d-flex flex-column justify-content-center align-items-center">
-                            <span className="price">489 ৳</span>
-                            <span>5 kg</span>
+                            <span className="price">{productDetails.price && Object.values(productDetails.price)[2]} ৳</span>
+                            <span>{productDetails.price && Object.keys(productDetails.price)[2]} {productDetails.unit}</span>
                         </div>
                     </div>
 
                     <div className="product_bar"></div>
 
                     <div className="d-flex justify-content-center align-items-center">
-                        <select className="order_box" id="quantity">
-                            <option value="1">1 kg</option>
-                            <option value="2">2 kg</option>
-                            <option value="3">3 kg</option>
+                        <select onChange={e => selectPrice(e.target.value)} className="order_box" id="quantity">
+                            <option selected disabled>Quantity</option>
+                            <option value={productDetails.price && Object.keys(productDetails.price)[0]}>{productDetails.price && Object.keys(productDetails.price)[0]} {productDetails.unit}</option>
+                            <option value={productDetails.price && Object.keys(productDetails.price)[1]}>{productDetails.price && Object.keys(productDetails.price)[1]} {productDetails.unit}</option>
+                            <option value={productDetails.price && Object.keys(productDetails.price)[2]}>{productDetails.price && Object.keys(productDetails.price)[2]} {productDetails.unit}</option>
                         </select>
                         
                         <div className="order_box" id="total_price">
-                            89 ৳
+                            {selectedPrice} ৳
                         </div>
                         
-                        <button onClick={() => navigate('checkout')} className="order_box" id="product_order_button">
+                        <button disabled={!productDetails.available || selectedPrice === 0} onClick={() => {setProduct(); navigate.push(`${productDetails.code}/checkout`)}} className="order_box" id="product_order_button">
                             <FontAwesomeIcon icon={faShoppingCart} /> &nbsp; Order now!
                         </button>
                     </div>
 
                     <div className="description mt-3">
-                        <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur recusandae laborum ullam necessitatibus optio mollitia, eveniet labore neque et, quisquam eum numquam quibusdam eligendi cupiditate eaque ipsa quidem quia explicabo, distinctio modi sapiente possimus. Minima fugit quas quidem odit eligendi adipisci </span>
+                        <span>{productDetails.description}</span>
                     </div>
 
                 </div>

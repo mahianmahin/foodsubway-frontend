@@ -1,0 +1,28 @@
+.message_box {
+    position: fixed;
+    height: 60px;
+    min-width: 250px;
+    bottom: 10%;
+    right: 10%;
+    background-color: white;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border-top: 3px solid var(--orange);
+    border-bottom: 3px solid var(--green);
+}
+
+.message_icon {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .message_box {
+        bottom: 5%;
+        right: 5%;
+        height: 50px;
+        min-width: 200px;
+        font-size: 15px;
+    }
+}
