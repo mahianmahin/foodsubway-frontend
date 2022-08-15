@@ -51,11 +51,18 @@ export default function ProductDetails() {
       <div className='container'>
         <div className='row my-3'>
           <div className='col-md-6 overflow-hidden d-flex justify-content-center align-items-center'>
-            <div className='d-flex gap-2 justify-content-center align-items-center flex-column p-6 col-6'>
-              {<img src={activeImage} alt='product' className='' height="20%" width='840px' />}
-              <div className='d-flex gap-2 align-items-center justify-content-center'>
+            <div className='main_container'>
+              <div className=' main_container_img'>
+                {<img src={activeImage} alt='product' className='' />}
+              </div>
+              <div className='sun_container'>
                 {productImages.map((item) => (
-                  <img onClick={() => setActiveImage(item)} src={item} alt='' height='150px' width="250px" />
+                  <img
+                    className='sub_container_img'
+                    onClick={() => setActiveImage(item)}
+                    src={item}
+                    alt=''
+                  />
                 ))}
               </div>
             </div>
