@@ -6,10 +6,6 @@ import { useParams } from "react-router-dom";
 import { UtilitiesContext } from "../App";
 import Navbar from "../components/Navbar";
 import "../styles/ProductDetails.css";
-import productMain from "../assets/product_main.png";
-import p1 from "../assets/product_pic_1.png";
-import p2 from "../assets/product_pic_2.png";
-import p3 from "../assets/product_pic_3.png";
 export default function ProductDetails() {
   var navigate = useHistory();
   let { productCode } = useParams();
@@ -18,15 +14,18 @@ export default function ProductDetails() {
   const [productDetails, setProductDetails] = useState({});
   const [selectedPrice, setSelectedPrice] = useState(0);
 
-  const productImages = [productMain, p1, p2, p3];
+//   const productImages = [productMain, p1, p2, p3];
+  const [productImages, setProductImages] = useState([]);
   const initial = productImages[0];
-  const [activeImage, setActiveImage] = useState(initial);
+  const [activeImage, setActiveImage] = useState(0);
   useEffect(() => {
     fetch(context.baseUrl + "/products/single/" + productCode + "/")
       .then((response) => response.json())
       .then((data) => {
+        setProductImages([data.data.thumb_one, data.data.thumb_two, data.data.thumb_three])
+        console.log(productImages);
         setProductDetails(data.data);
-      });
+    });
 
     // setSelectedPrice(productDetails.price && Object.values(productDetails.price)[0]);
     // eslint-disable-next-line
@@ -53,17 +52,27 @@ export default function ProductDetails() {
           <div className='col-md-6 overflow-hidden d-flex justify-content-center align-items-center'>
             <div className='main_container'>
               <div className=' main_container_img'>
-                {<img src={activeImage} alt='product' className='' />}
+                {<img src={context.baseUrl + productImages[activeImage]} alt='product' className='' />}
               </div>
               <div className='sun_container'>
-                {productImages.map((item) => (
-                  <img
+                <img
                     className='sub_container_img'
-                    onClick={() => setActiveImage(item)}
-                    src={item}
+                    onClick={() => setActiveImage(0)}
+                    src={context.baseUrl + productImages[0]}
                     alt=''
                   />
-                ))}
+                <img
+                    className='sub_container_img'
+                    onClick={() => setActiveImage(1)}
+                    src={context.baseUrl + productImages[1]}
+                    alt=''
+                  />
+                <img
+                    className='sub_container_img'
+                    onClick={() => setActiveImage(2)}
+                    src={context.baseUrl + productImages[2]}
+                    alt=''
+                  />
               </div>
             </div>
           </div>
